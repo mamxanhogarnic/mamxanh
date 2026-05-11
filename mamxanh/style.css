@@ -266,3 +266,18 @@ body {
   .cart-layout { flex-direction: column; }
   .cart-summary { width: 100%; position: static; }
 }
+/* FLOATING CONTACT BUTTONS */
+.floating-contact { position: fixed; bottom: 30px; left: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 999; }
+.contact-bubble { width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: 0.3s; position: relative; }
+.contact-bubble:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
+.contact-bubble.phone { background: #10b981; animation: pulse-green 2s infinite; }
+.contact-bubble.zalo { background: #0068ff; }
+.contact-bubble.fb { background: #0866ff; }
+.contact-bubble .icon { font-size: 24px; }
+.contact-bubble .text { font-size: 16px; font-weight: 800; }
+
+@keyframes pulse-green {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
