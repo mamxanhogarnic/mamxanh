@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sản Phẩm - Mầm Xanh</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">
+    <a href="index.html" class="logo-text">
+      <img src="logo.png" alt="Mầm Xanh Logo">
+    </a>
+  </div>
+
+  <div class="search-container">
+    <span class="search-icon">🔍</span>
+    <input class="search" placeholder="Tìm kiếm rau củ tươi, trái cây...">
+  </div>
+
+  <div class="right">
+    <a href="cart.html" class="cart-link">
+      🛒 Giỏ hàng <span id="cart-count">0</span>
+    </a>
+    <div class="user-menu" id="user-menu"></div>
+  </div>
+</header>
+
+<div class="container" style="margin-top: 40px;">
+  <aside class="sidebar">
+    <h3>Danh mục</h3>
+    <ul>
+      <li class="active" onclick="filterCategory('all', this)">🥗 Tất cả sản phẩm</li>
+      <li onclick="filterCategory('vegetable', this)">🥬 Rau xanh</li>
+      <li onclick="filterCategory('fruit', this)">🍎 Trái cây</li>
+      <li onclick="filterCategory('root', this)">🥕 Củ quả</li>
+      <li onclick="filterCategory('combo', this)">🎁 Combo tiết kiệm</li>
+    </ul>
+  </aside>
+
+  <main class="main">
+    <div class="main-header">
+      <h2>Tất cả sản phẩm</h2>
+      <span class="result-count" id="result-count">0 sản phẩm</span>
+    </div>
+    <div id="products" class="grid">
+      <!-- Products injected here -->
+    </div>
+  </main>
+</div>
+
+<!-- PRODUCT MODAL -->
+<div id="product-modal" class="modal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeProductModal()">✕</button>
+    <div class="modal-img">
+      <img id="m-prod-img" src="" alt="Product">
+    </div>
+    <div class="modal-info">
+      <h2 id="m-prod-name">Tên sản phẩm</h2>
+      <div class="modal-price" id="m-prod-price">0đ</div>
+      <p class="modal-desc" id="m-prod-desc">Mô tả chi tiết sản phẩm.</p>
+      
+      <div class="qty-selector">
+        <button class="qty-btn" onclick="changeModalQty(-1)">-</button>
+        <input type="text" class="qty-input" id="m-prod-qty" value="1" readonly>
+        <button class="qty-btn" onclick="changeModalQty(1)">+</button>
+      </div>
+      
+      <button class="btn-primary" id="m-prod-add">Thêm vào giỏ hàng</button>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-bottom">
+    © 2026 Rau Sạch Mầm Xanh | Designed with 💚
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

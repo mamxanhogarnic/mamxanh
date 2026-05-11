@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mầm Xanh - Nông Sản Đăk Đoa</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="logo">
+      <a href="index.html" class="logo-text">
+        <img src="logo.png" alt="Mầm Xanh Logo">
+      </a>
+    </div>
+
+    <div class="search-container">
+      <span class="search-icon">🔍</span>
+      <input class="search" placeholder="Tìm kiếm rau củ tươi, trái cây...">
+    </div>
+
+    <div class="right">
+      <a href="cart.html" class="cart-link">
+        🛒 Giỏ hàng <span id="cart-count">0</span>
+      </a>
+      <div class="user-menu" id="user-menu">
+        <!-- Injected by script.js -->
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="slider">
+      <div class="slides" id="slides">
+        <div class="slide">
+          <img src="banner1.png" alt="Khỏe từ Gốc Sạch từ Tâm">
+        </div>
+        <div class="slide">
+          <img src="banner.png" alt="Giao hàng tận nơi">
+        </div>
+      </div>
+      <div class="slider-dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+      </div>
+    </div>
+    <div class="hero-text">
+      <h1>Khỏe từ Gốc <br> Sạch từ Tâm</h1>
+      <p>Tươi ngon – Sạch sẽ – Giao hàng nhanh chóng. <br> Các sản phẩm nông sản từ Đăk Đoa.</p>
+      <a href="#products-section" class="btn-primary">Mua Ngay</a>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-container">
+      <div class="about-text">
+        <span class="about-badge">VỀ CHÚNG TÔI</span>
+        <h2>Nông trại Mầm Xanh Đăk Đoa</h2>
+        <p>
+          Rau tại Mầm Xanh được trồng theo quy trình tự nhiên, cam kết 100% không sử dụng hóa chất độc hại hay thuốc trừ
+          sâu.
+          Chúng tôi kiểm soát chất lượng nghiêm ngặt từ khâu gieo trồng đến lúc thu hoạch,
+          đảm bảo mang đến sản phẩm tươi ngon và an toàn tuyệt đối cho bữa ăn của gia đình bạn.
+        </p>
+        <p>
+          Nguồn nông sản được gieo trồng tại huyện Đăk Đoa thuộc tỉnh Gia Lai,
+          nơi có khí hậu lý tưởng và vùng thổ nhưỡng màu mỡ, giúp cây trồng phát triển tự nhiên và giữ trọn hàm lượng
+          dinh dưỡng.
+        </p>
+      </div>
+      <div class="about-img">
+        <img src="vườn rau.jpg" alt="Nông trại rau Mầm Xanh Đăk Đoa">
+      </div>
+    </div>
+  </section>
+
+  <div class="container" id="products-section">
+    <aside class="sidebar">
+      <h3>Danh mục</h3>
+      <ul>
+        <li class="active" onclick="filterCategory('all', this)">🥗 Tất cả sản phẩm</li>
+        <li onclick="filterCategory('vegetable', this)">🥬 Rau xanh</li>
+        <li onclick="filterCategory('Rau gia vị', this)">🌿 Rau gia vị</li>
+        <li onclick="filterCategory('root', this)">🥕 Củ quả</li>
+        <li onclick="filterCategory('combo', this)">🎁 Combo tiết kiệm</li>
+      </ul>
+    </aside>
+
+    <main class="main">
+      <div class="main-header">
+        <h2>Sản phẩm nổi bật</h2>
+        <span class="result-count" id="result-count">0 sản phẩm</span>
+      </div>
+      <div id="products" class="grid">
+        <!-- Products injected here -->
+      </div>
+    </main>
+  </div>
+
+  <!-- PRODUCT MODAL -->
+  <div id="product-modal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeProductModal()">✕</button>
+      <div class="modal-img">
+        <img id="m-prod-img" src="" alt="Product">
+      </div>
+      <div class="modal-info">
+        <h2 id="m-prod-name">Tên sản phẩm</h2>
+        <div class="modal-price" id="m-prod-price">0đ</div>
+        <p class="modal-desc" id="m-prod-desc">Mô tả chi tiết sản phẩm.</p>
+
+        <div class="qty-selector">
+          <button class="qty-btn" onclick="changeModalQty(-1)">-</button>
+          <input type="text" class="qty-input" id="m-prod-qty" value="1" readonly>
+          <button class="qty-btn" onclick="changeModalQty(1)">+</button>
+        </div>
+
+        <button class="btn-primary" id="m-prod-add">Thêm vào giỏ hàng</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>🌱 Mầm Xanh Organic</h3>
+        <p style="margin-bottom: 10px;"><strong>Nông Trại Hữu Cơ Mầm Xanh</strong> tự hào là đơn vị tiên phong tại Đăk
+          Đoa, Gia Lai trong lĩnh vực nông nghiệp sạch. Chúng tôi áp dụng quy trình gieo trồng khép kín 100% không hóa
+          chất, mang thiên nhiên tươi lành và dinh dưỡng trọn vẹn đến từng bữa ăn của gia đình Việt.</p>
+        <p style="font-style: italic; color: var(--accent); font-weight: 600;">"Khỏe từ Gốc - Sạch từ Tâm"</p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/ZeD3012" target="_blank" title="Facebook">Facebook</a>
+          <a href="https://www.instagram.com/trg.dngg/" target="_blank" title="Instagram">Instagram</a>
+          <a href="#" title="Zalo">Zalo</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3>📞 Liên hệ</h3>
+        <p><span>📱</span> <a href="tel:0796680812">0796 680 812</a></p>
+        <p><span>📧</span> <a href="mailto:dungphamtrung543@gmail.com">mamxanh@gmail.com</a></p>
+        <p><span>📍</span> Đăk Đoa, Gia Lai, Việt Nam</p>
+      </div>
+
+      <div class="footer-col">
+        <h3>📍 Vị trí nông trại</h3>
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps?q=Đăk%20Đoa%20Gia%20Lai&output=embed" loading="lazy"
+            style="width:100%; height:100%; border:none;"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 Rau Sạch Mầm Xanh | Designed Trung Dũng 💚
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

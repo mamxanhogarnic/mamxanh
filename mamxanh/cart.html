@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giỏ Hàng - Mầm Xanh</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">
+    <a href="index.html" class="logo-text">
+      <img src="logo.png" alt="Mầm Xanh Logo">
+    </a>
+  </div>
+  <div class="right">
+    <a href="index.html" class="cart-link">← Tiếp tục mua hàng</a>
+    <div class="user-menu" id="user-menu"></div>
+  </div>
+</header>
+
+<div class="cart-container">
+  <div class="cart-header">
+    <h1>Giỏ hàng của bạn</h1>
+  </div>
+
+  <div id="empty-cart" class="empty-cart" style="display: none;">
+    <div class="empty-cart-icon">🛒</div>
+    <h2>Giỏ hàng đang trống</h2>
+    <p>Hãy khám phá thêm các sản phẩm nông sản sạch của chúng tôi nhé!</p>
+    <a href="index.html" class="btn-primary">Mua sắm ngay</a>
+  </div>
+
+  <div class="cart-layout" id="cart-layout">
+    <div class="cart-items-section">
+      <div id="cart">
+        <!-- Cart items injected here -->
+      </div>
+    </div>
+
+    <div class="cart-summary">
+      <h3>🧾 Thông tin đơn hàng</h3>
+      
+      <div class="address-card">
+        <h4>📍 Giao tới: <button class="btn-outline" onclick="openAddressModal()">Thay đổi</button></h4>
+        <div id="selected-address">
+          <!-- Selected address injected here -->
+        </div>
+      </div>
+
+      <div class="summary-row">
+        <span>Tạm tính:</span>
+        <strong id="subtotal">0đ</strong>
+      </div>
+      <div class="summary-row">
+        <span>Phí vận chuyển:</span>
+        <strong id="shipping">0đ</strong>
+      </div>
+      <div class="summary-row">
+        <span>Khuyến mãi:</span>
+        <strong id="discount" style="color: var(--accent);">0đ</strong>
+      </div>
+      
+      <div class="summary-row total">
+        <span>Tổng cộng:</span>
+        <span id="total">0đ</span>
+      </div>
+
+      <button class="btn-primary" onclick="checkout()">Thanh toán ngay</button>
+      <button class="btn-clear" onclick="clearCart()">Xóa toàn bộ giỏ hàng</button>
+    </div>
+  </div>
+</div>
+
+<!-- ADDRESS SELECTION / ADD MODAL -->
+<div id="address-modal" class="modal modal-address">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeAddressModal()">✕</button>
+    <h2>Chọn địa chỉ giao hàng</h2>
+    
+    <div class="address-list-modal" id="modal-address-list">
+      <!-- Addresses injected here -->
+    </div>
+    
+    <button class="btn-primary" style="margin-bottom: 30px;" onclick="selectAddressModal()">Xác nhận chọn</button>
+
+    <h3 style="margin-bottom: 15px; font-size: 18px; color: var(--primary);">Thêm địa chỉ mới</h3>
+    <div class="form-grid">
+      <div class="input-group">
+        <label>Họ và tên</label>
+        <input id="m-name" placeholder="Nguyễn Văn A">
+      </div>
+      <div class="input-group">
+        <label>Số điện thoại</label>
+        <input id="m-phone" placeholder="090...">
+      </div>
+      <div class="input-group">
+        <label>Tỉnh / Thành phố</label>
+        <input id="m-province" placeholder="VD: Gia Lai">
+      </div>
+      <div class="input-group">
+        <label>Quận / Huyện</label>
+        <input id="m-district" placeholder="VD: Đăk Đoa">
+      </div>
+      <div class="input-group full">
+        <label>Địa chỉ cụ thể (Số nhà, đường)</label>
+        <input id="m-address" placeholder="VD: 123 Đường Trần Hưng Đạo">
+      </div>
+    </div>
+    <button class="btn-primary" onclick="saveNewAddress()">Thêm địa chỉ</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
